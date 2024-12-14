@@ -1,0 +1,18 @@
+---
+keys:
+  - &hexa age1j3mkgedmeru63vwww6m44zfw09tg8yw6xdzstaq7ejfkvgcau40qwakm8x
+  - &dasJ age1lz3mvem0rgfxj7uavth8du4xsw23wp5ts77m5vvclxyj5mjxfujs0jgtcz
+  - &cole-h age1m68dw9dltvtsg8e9lf5ts2vwnn4ykraguhjr8v65s0xessk3xqeqyz5jwt
+  - &cole-h-2 age1nc9sh92wf62nt89k4vgyvqws2pt49cq6xqxx46jqpz4vqxsh5a4q8ltzp8
+  - &zimbatm age1jrh8yyq3swjru09s75s4mspu0mphh7h6z54z946raa9wx3pcdegq0x8t4h
+  - &core01-ofborg-org age1rrrj8tgcyp9xfxvy6zmk9487x62cgx0z68l7jretz2th6ey9nf4qh7nq7h
+
+creation_rules:
+  - path_regex: secrets/[^/]+.core01.ofborg.org
+    key_groups:
+      - age:
+          - *core01-ofborg-org
+          - *hexa
+          - *dasJ
+          - *cole-h
+          - *cole-h-2
