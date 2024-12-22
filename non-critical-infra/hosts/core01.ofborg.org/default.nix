@@ -5,7 +5,10 @@
     inputs.srvos.nixosModules.server
     inputs.srvos.nixosModules.hardware-hetzner-cloud
     "${inputs.infra}/modules/common.nix"
+    "${inputs.infra}/non-critical-infra/modules/common.nix"
     "${inputs.infra}/non-critical-infra/modules/prometheus/node-exporter.nix"
+    ./nginx.nix
+    ./rabbitmq.nix
   ];
   # TODO backups
   # TODO wire up exporters
