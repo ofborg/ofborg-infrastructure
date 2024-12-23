@@ -48,5 +48,14 @@
     linkConfig.RequiredForOnline = "routable";
   };
 
+  nixpkgs.overlays = [ (_self: super: {
+    ofborg = inputs.ofborg.packages.${super.system}.pkg;
+  }) ];
+
+  systemd.targets.ofborg = {
+    description = "ofBorg target";
+    wantedBy = [ "multi-user.target" ];
+  };
+
   system.stateVersion = "24.11"; # Did you read the comment?
 }

@@ -481,6 +481,27 @@
         "type": "github"
       }
     },
+    "ofborg": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1734983630,
+        "narHash": "sha256-JU6kJb36kCHiQE9x9ijaKajRbj7oJWSgly51VAH8bUE=",
+        "owner": "NixOS",
+        "repo": "ofborg",
+        "rev": "bc9577cf93dd0531d4f29c25ce4ee7e83ab1dcfc",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "feat/webhook-riir",
+        "repo": "ofborg",
+        "type": "github"
+      }
+    },
     "pre-commit": {
       "inputs": {
         "flake-compat": "flake-compat_3",
@@ -523,6 +544,7 @@
         "infra": "infra",
         "nixpkgs": "nixpkgs_3",
         "nixpkgs-unstable": "nixpkgs-unstable",
+        "ofborg": "ofborg",
         "sops-nix": "sops-nix_2",
         "srvos": "srvos_2"
       }

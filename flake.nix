@@ -35,6 +35,10 @@
         nixpkgs-unstable.follows = "nixpkgs-unstable";
       };
     };
+    ofborg = {
+      url = "github:NixOS/ofborg/feat/webhook-riir";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -47,11 +51,7 @@
         "aarch64-darwin"
       ];
       imports = [
-        #./formatter/flake-module.nix
-        #./checks/flake-module.nix
-        #./terraform/flake-module.nix
         ./non-critical-infra/flake-module.nix
-        #./macs/flake-module.nix
       ];
     };
 }
