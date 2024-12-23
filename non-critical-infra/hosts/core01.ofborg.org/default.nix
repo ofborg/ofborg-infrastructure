@@ -9,6 +9,8 @@
     "${inputs.infra}/non-critical-infra/modules/prometheus/node-exporter.nix"
     ./nginx.nix
     ./rabbitmq.nix
+    ./ofborg-config.nix
+    ./github-webhook-receiver.nix
   ];
   # TODO backups
   # TODO wire up exporters

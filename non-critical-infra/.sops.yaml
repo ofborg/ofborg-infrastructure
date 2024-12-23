@@ -8,7 +8,7 @@ keys:
   - &core01-ofborg-org age1rrrj8tgcyp9xfxvy6zmk9487x62cgx0z68l7jretz2th6ey9nf4qh7nq7h
 
 creation_rules:
-  - path_regex: secrets/[^/]+.core01.ofborg.org
+  - path_regex: secrets/[^/]+.core01.ofborg.org.yml
     key_groups:
       - age:
           - *core01-ofborg-org
