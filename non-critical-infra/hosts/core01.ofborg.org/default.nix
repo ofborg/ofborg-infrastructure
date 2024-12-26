@@ -11,6 +11,7 @@
     ./rabbitmq.nix
     ./ofborg-config.nix
     ./github-webhook-receiver.nix
+    ./evaluation-filter.nix
   ];
   # TODO backups
   # TODO wire up exporters

@@ -15,6 +15,21 @@ in {
         password_file = "/run/secrets/ofborg/github-webhook-rabbitmq-password";
       };
     };
+    evaluation_filter = {
+      rabbitmq = rabbitmq // {
+        username = "ofborg-evaluation-filter";
+        password_file = "/run/secrets/ofborg/evaluation-filter-rabbitmq-password";
+      };
+    };
+    runner = {
+      identity = "ofborg-core";
+      repos = [
+        "nixos/nixpkgs"
+        "ofborg/testpkgs"
+      ];
+      disable_trusted_users = true;
+      trusted_users = []; # disabled so everyone can build
+    };
 
     checkout.root = "/ofborg/checkout";
     feedback.full_logs = true;
@@ -36,17 +51,6 @@ in {
       ssl = true;
       username = "ofborgsrvc";
       virtualhost = "ofborg";
-    };
-    runner = {
-      disable_trusted_users = true;
-      identity = "ofborg-core";
-      repos = [
-        "nixos/nixpkgs"
-        "nixos/ofborg"
-        "grahamc/ofborg"
-        "grahamc/nixpkgs"
-      ];
-      trusted_users = [];
     };
 
   };
