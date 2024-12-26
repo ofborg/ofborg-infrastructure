@@ -10,8 +10,12 @@
     ./nginx.nix
     ./rabbitmq.nix
     ./ofborg-config.nix
+    # Accepts webhooks from GitHub
     ./github-webhook-receiver.nix
+    # Checks wheter a PR event is interesting to us
     ./evaluation-filter.nix
+    # Handles incoming comments
+    ./github-comment-filter.nix
   ];
   # TODO backups
   # TODO wire up exporters
