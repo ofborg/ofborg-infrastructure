@@ -36,7 +36,7 @@
       };
     };
     ofborg = {
-      url = "github:NixOS/ofborg/feat/webhook-riir";
+      url = "github:NixOS/ofborg";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
