@@ -27,6 +27,12 @@ in {
         password_file = "/run/secrets/ofborg/github-comment-filter-rabbitmq-password";
       };
     };
+    github_comment_poster = {
+      rabbitmq = rabbitmq // {
+        username = "ofborg-github-comment-poster";
+        password_file = "/run/secrets/ofborg/github-comment-poster-rabbitmq-password";
+      };
+    };
     runner = {
       identity = "ofborg-core"; # TODO what is this
       repos = [
@@ -38,7 +44,7 @@ in {
     };
     github_app = {
       app_id = 20500; # Used for submitting statuses
-      private_key = "/run/agenix/github_app_key_file"; # Used for submitting statuses
+      private_key = "/run/secrets/ofborg/github-app-key"; # Used for submitting statuses
       oauth_client_id = "Iv1.24d6e782e2ccbbdf"; # For accessing the API
       oauth_client_secret_file = "/run/secrets/ofborg/github-oauth-secret"; # For accessing the API
     };

@@ -16,6 +16,8 @@
     ./evaluation-filter.nix
     # Handles incoming comments
     ./github-comment-filter.nix
+    # Posts to GitHub
+    ./github-comment-poster.nix
   ];
   # TODO backups
   # TODO wire up exporters
