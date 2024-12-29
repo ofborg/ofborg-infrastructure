@@ -6,7 +6,6 @@
     ../../modules/ofborg/common.nix
     ./nginx.nix
     ./rabbitmq.nix
-    ./ofborg-config.nix
     # Accepts webhooks from GitHub
     ./github-webhook-receiver.nix
     # Checks wheter a PR event is interesting to us

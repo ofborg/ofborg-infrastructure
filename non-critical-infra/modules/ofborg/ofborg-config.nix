@@ -5,7 +5,7 @@ let
     virtualhost = "ofborg";
     # Missing: username and password_file
   };
-in {
+in { config, pkgs, ... }: {
   environment.etc."ofborg.json".text = builtins.toJSON {
     github_webhook_receiver = {
       listen = "[::1]:9899";
@@ -33,6 +33,12 @@ in {
         password_file = "/run/secrets/ofborg/github-comment-poster-rabbitmq-password";
       };
     };
+    mass_rebuilder = {
+      rabbitmq = rabbitmq // {
+        username = config.networking.hostName;
+        password_file = "/run/secrets/ofborg/mass-rebuilder-rabbitmq-password";
+      };
+    };
     runner = {
       identity = "ofborg-core"; # TODO what is this
       repos = [
@@ -49,14 +55,14 @@ in {
       oauth_client_secret_file = "/run/secrets/ofborg/github-oauth-secret"; # For accessing the API
     };
 
-    checkout.root = "/ofborg/checkout";
+    checkout.root = "/var/lib/ofborg/checkout";
     feedback.full_logs = true;
     log_storage.path = "/var/log/ofborg";
     nix = {
       build_timeout_seconds = 3600;
       initial_heap_size = "4g";
       remote = "daemon";
-      system = "x86_64-linux";
+      inherit (pkgs) system;
     };
     rabbitmq = {
       host = "devoted-teal-duck.rmq.cloudamqp.com";
@@ -72,12 +78,12 @@ in {
     "ofborg/github-oauth-secret" = {
       mode = "0440";
       group = "ofborg-github-oauth-secret";
-      sopsFile = ../../secrets/github-secrets.ofborg.org.yml;
+      sopsFile = ../../secrets/github-tokens.ofborg.org.yml;
     };
     "ofborg/github-app-key" = {
       mode = "0440";
       group = "ofborg-github-app-key";
-      sopsFile = ../../secrets/ofborg.core01.ofborg.org.yml;
+      sopsFile = ../../secrets/github-tokens.ofborg.org.yml;
     };
   };
   users.groups."ofborg-github-oauth-secret" = {};
