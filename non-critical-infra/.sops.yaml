@@ -6,12 +6,30 @@ keys:
   - &cole-h-2 age1nc9sh92wf62nt89k4vgyvqws2pt49cq6xqxx46jqpz4vqxsh5a4q8ltzp8
   - &zimbatm age1jrh8yyq3swjru09s75s4mspu0mphh7h6z54z946raa9wx3pcdegq0x8t4h
   - &core01-ofborg-org age1rrrj8tgcyp9xfxvy6zmk9487x62cgx0z68l7jretz2th6ey9nf4qh7nq7h
+  - &eval01-ofborg-org age16d0phf8c5wy3rfsd4pgc42mqa3aw2llfukdhgu7pzklnzjr2rvxsusz842
 
 creation_rules:
   - path_regex: secrets/[^/]+.core01.ofborg.org.yml
     key_groups:
       - age:
           - *core01-ofborg-org
+          - *hexa
+          - *dasJ
+          - *cole-h
+          - *cole-h-2
+  - path_regex: secrets/github-tokens.ofborg.org.yml
+    key_groups:
+      - age:
+          - *core01-ofborg-org
+          - *eval01-ofborg-org
+          - *hexa
+          - *dasJ
+          - *cole-h
+          - *cole-h-2
+  - path_regex: secrets/[^/]+.eval01.ofborg.org.yml
+    key_groups:
+      - age:
+          - *eval01-ofborg-org
           - *hexa
           - *dasJ
           - *cole-h

@@ -26,6 +26,7 @@
       ExecStart = "${pkgs.ofborg}/bin/github-comment-poster /etc/ofborg.json";
       User = "ofborg-github-comment-poster";
       Group = "ofborg-github-comment-poster";
+      SupplementaryGroups = [ "ofborg-github-app-key" ];
 
       # Capabilities
       CapabilityBoundingSet = ""; # Allow no capabilities at all
@@ -61,10 +62,6 @@
       restartUnits = [ "ofborg-github-comment-poster.service" ];
       sopsFile = ../../secrets/ofborg.core01.ofborg.org.yml;
     };
-    "ofborg/github-app-key" = {
-      owner = "ofborg-github-comment-poster";
-      restartUnits = [ "ofborg-github-comment-poster.service" ];
-      sopsFile = ../../secrets/ofborg.core01.ofborg.org.yml;
-    };
+    "ofborg/github-app-key".restartUnits = [ "ofborg-github-comment-poster.service" ];
   };
 }

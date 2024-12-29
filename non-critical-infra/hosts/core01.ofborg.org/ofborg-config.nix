@@ -56,7 +56,7 @@ in {
       build_timeout_seconds = 3600;
       initial_heap_size = "4g";
       remote = "daemon";
-      system = "x86_64-liinux";
+      system = "x86_64-linux";
     };
     rabbitmq = {
       host = "devoted-teal-duck.rmq.cloudamqp.com";
@@ -72,8 +72,14 @@ in {
     "ofborg/github-oauth-secret" = {
       mode = "0440";
       group = "ofborg-github-oauth-secret";
+      sopsFile = ../../secrets/github-secrets.ofborg.org.yml;
+    };
+    "ofborg/github-app-key" = {
+      mode = "0440";
+      group = "ofborg-github-app-key";
       sopsFile = ../../secrets/ofborg.core01.ofborg.org.yml;
     };
   };
   users.groups."ofborg-github-oauth-secret" = {};
+  users.groups."ofborg-github-app-key" = {};
 }

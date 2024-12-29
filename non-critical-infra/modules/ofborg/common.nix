@@ -27,4 +27,5 @@
     wantedBy = [ "multi-user.target" ];
   };
 
+  deployment.tags = [ "ofborg" ];
 }
