@@ -35,7 +35,7 @@ in { config, pkgs, ... }: {
     };
     mass_rebuilder = {
       rabbitmq = rabbitmq // {
-        username = config.networking.hostName;
+        username = "ofborg-${config.networking.hostName}";
         password_file = "/run/secrets/ofborg/mass-rebuilder-rabbitmq-password";
       };
     };
