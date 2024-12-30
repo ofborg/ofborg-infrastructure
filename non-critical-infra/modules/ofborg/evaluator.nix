@@ -24,6 +24,7 @@
     };
 
     stopIfChanged = false;
+    unitConfig.StartLimitIntervalSec = "infinity";
     serviceConfig = {
       # Filesystem stuff
       ProtectSystem = "strict"; # Prevent writing to most of /
@@ -38,6 +39,7 @@
       UMask = "0077";
 
       Restart = "always";
+      RestartSec = "5s";
       ExecStart = "${pkgs.ofborg}/bin/mass-rebuilder /etc/ofborg.json";
       User = "ofborg-mass-rebuilder";
       Group = "ofborg-mass-rebuilder";

@@ -9,6 +9,7 @@
     restartTriggers = [ config.environment.etc."ofborg.json".source ];
 
     stopIfChanged = false;
+    unitConfig.StartLimitIntervalSec = "infinity";
     serviceConfig = {
       # Filesystem stuff
       ProtectSystem = "strict"; # Prevent writing to most of /
@@ -23,6 +24,7 @@
       UMask = "0077";
 
       Restart = "always";
+      RestartSec = "5s";
       ExecStart = "${pkgs.ofborg}/bin/github-webhook-receiver /etc/ofborg.json";
       User = "ofborg-github-webhook-receiver";
       Group = "ofborg-github-webhook-receiver";
