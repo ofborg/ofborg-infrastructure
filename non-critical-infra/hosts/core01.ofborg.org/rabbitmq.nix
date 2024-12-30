@@ -1,12 +1,8 @@
-{ pkgs, config, ... }:
+{ config, ... }:
 
 {
   services.rabbitmq = {
     enable = true;
-    # Injects the version into `rabbitmqctl --version` and the web interface
-    package = pkgs.rabbitmq-server.overrideAttrs (oA: {
-      PROJECT_VERSION = oA.version;
-    });
     plugins = [
       "rabbitmq_shovel"
       "rabbitmq_shovel_management"
