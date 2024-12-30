@@ -33,6 +33,13 @@ in { config, pkgs, ... }: {
         password_file = "/run/secrets/ofborg/github-comment-poster-rabbitmq-password";
       };
     };
+    log_message_collector = {
+      rabbitmq = rabbitmq // {
+        username = "ofborg-log-message-collector";
+        password_file = "/run/secrets/ofborg/log-message-collector-rabbitmq-password";
+      };
+      logs_path = "/var/log/ofborg";
+    };
     mass_rebuilder = {
       rabbitmq = rabbitmq // {
         username = "ofborg-${config.networking.hostName}";
@@ -57,7 +64,6 @@ in { config, pkgs, ... }: {
 
     checkout.root = "/var/lib/ofborg/checkout";
     feedback.full_logs = true;
-    log_storage.path = "/var/log/ofborg";
     nix = {
       build_timeout_seconds = 3600;
       initial_heap_size = "4g";

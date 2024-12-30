@@ -12,6 +12,8 @@
     ./evaluation-filter.nix
     # Handles incoming comments
     ./github-comment-filter.nix
+    # Receives logs from builders
+    ./log-message-collector.nix
     # Posts to GitHub
     ./github-comment-poster.nix
   ];
