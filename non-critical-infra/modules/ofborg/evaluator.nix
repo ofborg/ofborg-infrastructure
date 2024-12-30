@@ -37,7 +37,7 @@
       RemoveIPC = true;
       UMask = "0077";
 
-      Restart = "on-failure";
+      Restart = "always";
       ExecStart = "${pkgs.ofborg}/bin/mass-rebuilder /etc/ofborg.json";
       User = "ofborg-mass-rebuilder";
       Group = "ofborg-mass-rebuilder";

@@ -22,7 +22,7 @@
       RemoveIPC = true;
       UMask = "0077";
 
-      Restart = "on-failure";
+      Restart = "always";
       ExecStart = "${pkgs.ofborg}/bin/github-webhook-receiver /etc/ofborg.json";
       User = "ofborg-github-webhook-receiver";
       Group = "ofborg-github-webhook-receiver";

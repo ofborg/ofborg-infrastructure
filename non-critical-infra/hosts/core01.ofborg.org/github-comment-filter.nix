@@ -22,7 +22,7 @@
       RemoveIPC = true;
       UMask = "0077";
 
-      Restart = "on-failure";
+      Restart = "always";
       ExecStart = "${pkgs.ofborg}/bin/github-comment-filter /etc/ofborg.json";
       User = "ofborg-github-comment-filter";
       Group = "ofborg-github-comment-filter";

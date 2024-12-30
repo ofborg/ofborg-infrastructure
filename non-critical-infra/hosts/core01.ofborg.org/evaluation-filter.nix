@@ -22,7 +22,7 @@
       RemoveIPC = true;
       UMask = "0077";
 
-      Restart = "on-failure";
+      Restart = "always";
       ExecStart = "${pkgs.ofborg}/bin/evaluation-filter /etc/ofborg.json";
       User = "ofborg-evaluation-filter";
       Group = "ofborg-evaluation-filter";
