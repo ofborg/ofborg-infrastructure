@@ -8,6 +8,8 @@
       PROJECT_VERSION = oA.version;
     });
     plugins = [
+      "rabbitmq_shovel"
+      "rabbitmq_shovel_management"
       # https://www.rabbitmq.com/docs/prometheus#overview-prometheus
       "rabbitmq_prometheus"
       # https://www.rabbitmq.com/docs/management
