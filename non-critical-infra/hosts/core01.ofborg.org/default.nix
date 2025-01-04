@@ -24,7 +24,7 @@
   boot.loader.grub.enable = true;
 
   networking = {
-    hostName = "core01";
+    hostName = "ofborg-core01";
     domain = "ofborg.org";
     hostId = "007f0101";
   };
