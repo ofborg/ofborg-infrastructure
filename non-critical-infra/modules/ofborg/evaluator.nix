@@ -4,6 +4,7 @@
   imports = [
     ./common.nix
     ./ofborg-config.nix
+    ./github-tokens.nix
   ];
 
   deployment.tags = [ "ofborg-evaluator" ];

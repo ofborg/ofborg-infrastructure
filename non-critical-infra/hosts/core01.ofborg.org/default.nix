@@ -4,6 +4,7 @@
   imports = [
     inputs.srvos.nixosModules.hardware-hetzner-cloud
     ../../modules/ofborg/common.nix
+    ../../modules/ofborg/github-tokens.nix
     ./nginx.nix
     ./rabbitmq.nix
     # Accepts webhooks from GitHub
