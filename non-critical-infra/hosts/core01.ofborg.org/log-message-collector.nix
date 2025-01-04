@@ -29,6 +29,8 @@
       User = "ofborg-logs";
       Group = "ofborg-logs";
 
+      LogsDirectory = "ofborg";
+
       # Capabilities
       CapabilityBoundingSet = ""; # Allow no capabilities at all
       NoNewPrivileges = true; # Disallow getting more capabilities. This is also implied by other options.
