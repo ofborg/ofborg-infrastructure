@@ -16,7 +16,7 @@
     bindsTo = [ "ofborg.target" ];
     restartTriggers = [ config.environment.etc."ofborg.json".source ];
 
-    path = [ config.nix.package pkgs.git ];
+    path = [ config.nix.package config.programs.git.package ];
 
     environment = {
       GIT_AUTHOR_NAME = "OfBorg";
@@ -75,6 +75,8 @@
     description = "ofBorg mass rebuilder system user";
   };
   users.groups.ofborg-mass-rebuilder = {};
+
+  programs.git.enable = true;
 
   sops.secrets = {
     "ofborg/github-oauth-secret".restartUnits = [ "ofborg-github-comment-filter.service" ];
