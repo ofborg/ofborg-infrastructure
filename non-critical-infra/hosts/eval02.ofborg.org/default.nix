@@ -13,7 +13,7 @@
   deployment.targetHost = "95.216.209.162";
 
   networking = {
-    hostName = "eval02";
+    hostName = "ofborg-eval02";
     domain = "ofborg.org";
     hostId = "007f0202";
   };
