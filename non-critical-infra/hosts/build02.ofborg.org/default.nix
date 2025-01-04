@@ -1,5 +1,3 @@
-{ inputs, ... }:
-
 {
   imports = [
     ../../modules/ofborg/builder.nix
@@ -12,7 +10,7 @@
   deployment.targetHost = "185.119.168.11";
 
   networking = {
-    hostName = "build02";
+    hostName = "ofborg-build02";
     domain = "ofborg.org";
     hostId = "007f0302";
   };
@@ -37,9 +35,9 @@
 
   system.stateVersion = "24.11"; # Did you read the comment?
 
-  /*sops.secrets."ofborg/mass-rebuilder-rabbitmq-password" = {
-    owner = "ofborg-mass-rebuilder";
-    restartUnits = [ "ofborg-mass-rebuilder.service" ];
-    sopsFile = ../../secrets/ofborg.eval01.ofborg.org.yml;
-  };*/
+  sops.secrets."ofborg/builder-rabbitmq-password" = {
+    owner = "ofborg-builder";
+    restartUnits = [ "ofborg-builder.service" ];
+    sopsFile = ../../secrets/ofborg.build02.ofborg.org.yml;
+  };
 }
