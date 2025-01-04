@@ -8,8 +8,8 @@
 
   deployment.tags = [ "ofborg-builder" ];
 
-  /*systemd.services.ofborg-mass-rebuilder = {
-    description = "ofBorg mass rebuilder";
+  systemd.services.ofborg-builder = {
+    description = "ofBorg builder";
 
     wantedBy = [ "ofborg.target" ];
     bindsTo = [ "ofborg.target" ];
@@ -40,10 +40,9 @@
 
       Restart = "always";
       RestartSec = "5s";
-      ExecStart = "${pkgs.ofborg}/bin/mass-rebuilder /etc/ofborg.json";
-      User = "ofborg-mass-rebuilder";
-      Group = "ofborg-mass-rebuilder";
-      SupplementaryGroups = [ "ofborg-github-oauth-secret" "ofborg-github-app-key" ];
+      ExecStart = "${pkgs.ofborg}/bin/builder /etc/ofborg.json";
+      User = "ofborg-builder";
+      Group = "ofborg-builder";
 
       StateDirectory = [ "ofborg/checkout" ];
 
@@ -68,15 +67,10 @@
     };
   };
 
-  users.users.ofborg-mass-rebuilder = {
+  users.users.ofborg-builder = {
     isSystemUser = true;
-    group = "ofborg-mass-rebuilder";
-    description = "ofBorg mass rebuilder system user";
+    group = "ofborg-builder";
+    description = "ofBorg builder system user";
   };
-  users.groups.ofborg-mass-rebuilder = {};
-
-  sops.secrets = {
-    "ofborg/github-oauth-secret".restartUnits = [ "ofborg-github-comment-filter.service" ];
-    "ofborg/github-app-key".restartUnits = [ "ofborg-github-comment-filter.service" ];
-  };*/
+  users.groups.ofborg-builder = {};
 }

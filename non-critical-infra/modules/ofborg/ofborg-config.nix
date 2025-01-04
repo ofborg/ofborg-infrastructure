@@ -55,6 +55,12 @@ in { config, pkgs, ... }: {
       disable_trusted_users = true;
       trusted_users = []; # disabled so everyone can build
     };
+    builder = {
+      rabbitmq = rabbitmq // {
+        username = "${config.networking.hostName}";
+        password_file = "/run/secrets/ofborg/builder-rabbitmq-password";
+      };
+    };
     github_app = {
       app_id = 20500; # Used for submitting statuses
       private_key = "/run/secrets/ofborg/github-app-key"; # Used for submitting statuses
@@ -63,35 +69,12 @@ in { config, pkgs, ... }: {
     };
 
     checkout.root = "/var/lib/ofborg/checkout";
-    feedback.full_logs = true;
     nix = {
       build_timeout_seconds = 3600;
       initial_heap_size = "4g";
       remote = "daemon";
       inherit (pkgs) system;
     };
-    rabbitmq = {
-      host = "devoted-teal-duck.rmq.cloudamqp.com";
-      password_file = "/run/agenix/rabbitmq_ofborgsrvc_password_file";
-      ssl = true;
-      username = "ofborgsrvc";
-      virtualhost = "ofborg";
-    };
   };
 
-  # Secrets that are shared between components
-  sops.secrets = {
-    "ofborg/github-oauth-secret" = {
-      mode = "0440";
-      group = "ofborg-github-oauth-secret";
-      sopsFile = ../../secrets/github-tokens.ofborg.org.yml;
-    };
-    "ofborg/github-app-key" = {
-      mode = "0440";
-      group = "ofborg-github-app-key";
-      sopsFile = ../../secrets/github-tokens.ofborg.org.yml;
-    };
-  };
-  users.groups."ofborg-github-oauth-secret" = {};
-  users.groups."ofborg-github-app-key" = {};
 }
