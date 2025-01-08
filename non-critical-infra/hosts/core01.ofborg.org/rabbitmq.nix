@@ -14,6 +14,9 @@
       "rabbitmq_web_stomp"
     ];
     configItems = {
+      # Consumer
+      "consumer_timeout" = "28800000"; # 8h
+
       # TLS
       "listeners.tcp" = "none";
       "listeners.ssl.default" = "5671";
