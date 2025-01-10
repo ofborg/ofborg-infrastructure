@@ -25,7 +25,7 @@
     };
 
     stopIfChanged = false;
-    unitConfig.StartLimitIntervalSec = "infinity";
+    unitConfig.StartLimitIntervalSec = 0;
     serviceConfig = {
       # Filesystem stuff
       ProtectSystem = "strict"; # Prevent writing to most of /
