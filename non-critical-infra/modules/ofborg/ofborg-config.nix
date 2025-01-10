@@ -15,6 +15,11 @@ in { config, pkgs, ... }: {
         password_file = "/run/secrets/ofborg/github-webhook-rabbitmq-password";
       };
     };
+    log_api_config = {
+      listen = "[::1]:9898";
+      logs_path = "/var/log/ofborg";
+      serve_root = "https://logs.ofborg.org/logfile";
+    };
     evaluation_filter = {
       rabbitmq = rabbitmq // {
         username = "ofborg-evaluation-filter";

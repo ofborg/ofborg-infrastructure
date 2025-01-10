@@ -1,8 +1,15 @@
-{ config, pkgs, ... }:
-
 {
-  systemd.services.ofborg-log-message-collector = {
-    description = "ofBorg log message collector";
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
+let
+  logviewer = import "${inputs.ofborg-viewer}/release.nix" { inherit pkgs; };
+in
+{
+  systemd.services.ofborg-logapi = {
+    description = "ofBorg log api";
 
     wantedBy = [ "ofborg.target" ];
     bindsTo = [ "ofborg.target" ];
@@ -21,15 +28,13 @@
       RestrictSUIDSGID = true; # Prevent creating SETUID/SETGID files
       PrivateMounts = true; # Give an own mount namespace
       RemoveIPC = true;
-      UMask = "0037";
+      UMask = "0077";
 
       Restart = "always";
       RestartSec = "5s";
-      ExecStart = "${pkgs.ofborg}/bin/log-message-collector /etc/ofborg.json";
-      User = "ofborg-logs";
-      Group = "ofborg-logs";
-
-      LogsDirectory = "ofborg";
+      ExecStart = "${pkgs.ofborg}/bin/logapi /etc/ofborg.json";
+      User = "ofborg-logapi";
+      Group = "ofborg-logapi";
 
       # Capabilities
       CapabilityBoundingSet = ""; # Allow no capabilities at all
@@ -52,18 +57,46 @@
     };
   };
 
-  users.users.ofborg-logs = {
-    isSystemUser = true;
-    group = "ofborg-logs";
-    description = "ofBorg logs user";
+  users = {
+    users.ofborg-logapi = {
+      isSystemUser = true;
+      group = "ofborg-logapi";
+      description = "ofBorg Log Api";
+      extraGroups = [ "ofborg-logs" ];
+    };
+    groups.ofborg-logapi = { };
+    users.nginx.extraGroups = [ "ofborg-logs" ];
   };
-  users.groups.ofborg-logs = {};
 
-  sops.secrets = {
-    "ofborg/log-message-collector-rabbitmq-password" = {
-      owner = "ofborg-logs";
-      restartUnits = [ "ofborg-log-message-collector.service" ];
-      sopsFile = ../../secrets/ofborg.core01.ofborg.org.yml;
+  services.nginx.virtualHosts."logs.ofborg.org" = {
+    forceSSL = true;
+    enableACME = true;
+    root = "${logviewer}/website";
+
+    locations = {
+      "/logfile/" = {
+        alias = "/var/log/ofborg/";
+        extraConfig = ''
+          add_header Access-Control-Allow-Origin "*";
+          add_header Access-Control-Request-Method "GET";
+          add_header Content-Security-Policy "default-src 'none'; sandbox;";
+          add_header Content-Type "text/plain; charset=utf-8";
+          add_header X-Content-Type-Options "nosniff";
+          add_header X-Frame-Options "deny";
+          add_header X-XSS-Protection "1; mode=block";
+        '';
+      };
+
+      "/logs/" = {
+        proxyPass = "http://[::1]:9898";
+        extraConfig = ''
+          add_header Access-Control-Allow-Origin "*";
+          add_header Access-Control-Request-Method "GET";
+          add_header Content-Security-Policy "default-src 'none'; sandbox;";
+          add_header X-Content-Type-Options "nosniff";
+          add_header X-XSS-Protection "1; mode=block";
+        '';
+      };
     };
   };
 }

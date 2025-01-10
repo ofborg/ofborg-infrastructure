@@ -17,6 +17,8 @@
     ./log-message-collector.nix
     # Posts to GitHub
     ./github-comment-poster.nix
+    # LogApi and LogViewer
+    ./log-viewer.nix
   ];
   # TODO backups
 

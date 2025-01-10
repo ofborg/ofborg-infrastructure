@@ -39,6 +39,10 @@
       url = "github:NixOS/ofborg";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    ofborg-viewer = {
+      url = "github:NixOS/ofborg-viewer";
+      flake = false;
+    };
   };
 
   outputs =
