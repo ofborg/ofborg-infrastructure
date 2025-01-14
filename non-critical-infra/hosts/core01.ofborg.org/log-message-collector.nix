@@ -21,7 +21,7 @@
       RestrictSUIDSGID = true; # Prevent creating SETUID/SETGID files
       PrivateMounts = true; # Give an own mount namespace
       RemoveIPC = true;
-      UMask = "0037";
+      UMask = "0027";
 
       Restart = "always";
       RestartSec = "5s";
