@@ -2,7 +2,7 @@
   disk = {
     main = {
       type = "disk";
-      device = "/dev/nvme0n1";
+      device = "/dev/sda";
       content = {
         type = "gpt";
         partitions = {
@@ -32,7 +32,7 @@
     zroot = {
       type = "zpool";
       options = {
-        # smartctl --all /dev/nvme0n1
+        # smartctl --all /dev/sda
         # Logical block size:   512 bytes
         ashift = "9";
       };

@@ -2,6 +2,7 @@
 
 {
   imports = [
+    inputs.srvos.nixosModules.hardware-hetzner-cloud-arm
     ../../modules/ofborg/builder.nix
     ./hardware.nix
   ];
@@ -9,7 +10,7 @@
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
 
-  deployment.targetHost = "185.119.168.14";
+  deployment.targetHost = "142.132.171.106";
 
   networking = {
     hostName = "ofborg-build05";
@@ -20,26 +21,28 @@
   disko.devices = import ./disko.nix;
 
   systemd.network.networks."10-uplink" = {
-    matchConfig.MACAddress = "22:17:4d:04:90:cb";
-    address = [ "185.119.168.15/32" ];
+    matchConfig.MACAddress = "96:00:03:fd:32:fd";
+    address = [
+      "142.132.171.106/32"
+      "2a01:4f8:1c1b:6d41::/64"
+    ];
     routes = [
+      { Gateway = "fe80::1"; }
       {
-        Gateway = "91.224.148.0";
+        Gateway = "172.31.1.1";
         GatewayOnLink = true;
       }
     ];
     linkConfig.RequiredForOnline = "routable";
   };
 
-  users.users.root.openssh.authorizedKeys.keys = [
-    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGQ5hBVVKK72ZX+n+BVnPocx+AG5u6ht8bM++G1lhufp liberodark@gmail.com"
-  ];
+  zramSwap.enable = true;
 
   system.stateVersion = "24.11"; # Did you read the comment?
 
-  /*sops.secrets."ofborg/mass-rebuilder-rabbitmq-password" = {
-    owner = "ofborg-mass-rebuilder";
-    restartUnits = [ "ofborg-mass-rebuilder.service" ];
-    sopsFile = ../../secrets/ofborg.eval01.ofborg.org.yml;
-  };*/
+  sops.secrets."ofborg/builder-rabbitmq-password" = {
+    owner = "ofborg-builder";
+    restartUnits = [ "ofborg-builder.service" ];
+    sopsFile = ../../secrets/ofborg.build05.ofborg.org.yml;
+  };
 }
