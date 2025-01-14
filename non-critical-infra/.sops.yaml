@@ -2,6 +2,7 @@
 keys:
   - &hexa age1j3mkgedmeru63vwww6m44zfw09tg8yw6xdzstaq7ejfkvgcau40qwakm8x
   - &dasJ age1lz3mvem0rgfxj7uavth8du4xsw23wp5ts77m5vvclxyj5mjxfujs0jgtcz
+  - &simon age17ez23w2kpxl0gcdx4ehcglkcfcfnv4qz0gq2n8ylxwx4yrtjpvjqxfasua
   - &cole-h age1m68dw9dltvtsg8e9lf5ts2vwnn4ykraguhjr8v65s0xessk3xqeqyz5jwt
   - &cole-h-2 age1nc9sh92wf62nt89k4vgyvqws2pt49cq6xqxx46jqpz4vqxsh5a4q8ltzp8
   - &zimbatm age1jrh8yyq3swjru09s75s4mspu0mphh7h6z54z946raa9wx3pcdegq0x8t4h
@@ -20,6 +21,7 @@ creation_rules:
       - age:
           - *core01-ofborg-org
           - *hexa
+          - *simon
           - *dasJ
           - *cole-h
           - *cole-h-2
@@ -32,6 +34,7 @@ creation_rules:
           - *eval03-ofborg-org
           - *eval04-ofborg-org
           - *hexa
+          - *simon
           - *dasJ
           - *cole-h
           - *cole-h-2
@@ -40,6 +43,7 @@ creation_rules:
       - age:
           - *eval01-ofborg-org
           - *hexa
+          - *simon
           - *dasJ
           - *cole-h
           - *cole-h-2
@@ -48,6 +52,7 @@ creation_rules:
       - age:
           - *eval02-ofborg-org
           - *hexa
+          - *simon
           - *dasJ
           - *cole-h
           - *cole-h-2
@@ -56,6 +61,7 @@ creation_rules:
       - age:
           - *eval03-ofborg-org
           - *hexa
+          - *simon
           - *dasJ
           - *cole-h
           - *cole-h-2
@@ -64,6 +70,7 @@ creation_rules:
       - age:
           - *eval04-ofborg-org
           - *hexa
+          - *simon
           - *dasJ
           - *cole-h
           - *cole-h-2
@@ -72,6 +79,7 @@ creation_rules:
       - age:
           - *build01-ofborg-org
           - *hexa
+          - *simon
           - *dasJ
           - *cole-h
           - *cole-h-2
@@ -80,6 +88,7 @@ creation_rules:
       - age:
           - *build02-ofborg-org
           - *hexa
+          - *simon
           - *dasJ
           - *cole-h
           - *cole-h-2
@@ -88,6 +97,7 @@ creation_rules:
       - age:
           - *build03-ofborg-org
           - *hexa
+          - *simon
           - *dasJ
           - *cole-h
           - *cole-h-2
