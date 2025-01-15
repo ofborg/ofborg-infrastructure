@@ -16,6 +16,8 @@ keys:
   - &build03-ofborg-org age1n0yrvl2v397kztuhf00cdvrhf26c9uegwz6day8z9pyqj3zff4sq6ha0lm
   - &build04-ofborg-org age1l7xmxkh6y6d5svj06txknamlwdpfwac8855p3edgpu6jcqea7pvslw4r9a
   - &build05-ofborg-org age1mduqldqpqp33u2wwh685cwwkpj2ak36z67dtrq2tcskgqkultvps7w9q7u
+  - &temp01-ofborg-org age12mz00mk2u85ag9yf5sjjzuxmscpgp9emnhshr3h89xyqf5kegqnq3xdcfl
+  - &temp02-ofborg-org age1vvt0uyfs40wvpz0cddvyzl8katrfmmhz2xpnzy6ku0dzytkv4fvqdd2w5j
 
 creation_rules:
   - path_regex: secrets/[^/]+.core01.ofborg.org.yml
@@ -116,6 +118,24 @@ creation_rules:
     key_groups:
       - age:
           - *build05-ofborg-org
+          - *hexa
+          - *simon
+          - *dasJ
+          - *cole-h
+          - *cole-h-2
+  - path_regex: secrets/[^/]+.temp01.ofborg.org.yml
+    key_groups:
+      - age:
+          - *temp01-ofborg-org
+          - *hexa
+          - *simon
+          - *dasJ
+          - *cole-h
+          - *cole-h-2
+  - path_regex: secrets/[^/]+.temp02.ofborg.org.yml
+    key_groups:
+      - age:
+          - *temp02-ofborg-org
           - *hexa
           - *simon
           - *dasJ
