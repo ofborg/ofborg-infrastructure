@@ -9,6 +9,8 @@
     ./ofborg-config.nix
   ];
 
+  nix.gc.automatic = true;
+
   # TODO wire up exporters
   # TODO loki
 
@@ -20,9 +22,11 @@
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIN3+NUShVVqdTH93fYFIVr0uaZ2zGiU9UEWIFk1sDHID cole-h-2"
   ];
 
-  nixpkgs.overlays = [ (_self: super: {
-    ofborg = inputs.ofborg.packages.${super.system}.pkg;
-  }) ];
+  nixpkgs.overlays = [
+    (_self: super: {
+      ofborg = inputs.ofborg.packages.${super.system}.pkg;
+    })
+  ];
 
   systemd.targets.ofborg = {
     description = "ofBorg target";
