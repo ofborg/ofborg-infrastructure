@@ -9,7 +9,7 @@
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
 
-  deployment.targetHost = "185.119.168.14";
+  deployment.targetHost = "185.119.168.15";
 
   networking = {
     hostName = "ofborg-build05";
