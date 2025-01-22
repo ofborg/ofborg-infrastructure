@@ -56,7 +56,7 @@
     group = "ofborg-github-comment-filter";
     description = "ofBorg GitHub comment filter system user";
   };
-  users.groups.ofborg-github-comment-filter = {};
+  users.groups.ofborg-github-comment-filter = { };
 
   sops.secrets = {
     "ofborg/github-comment-filter-rabbitmq-password" = {

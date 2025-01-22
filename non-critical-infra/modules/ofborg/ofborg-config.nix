@@ -5,7 +5,9 @@ let
     virtualhost = "ofborg";
     # Missing: username and password_file
   };
-in { config, pkgs, ... }: {
+in
+{ config, pkgs, ... }:
+{
   environment.etc."ofborg.json".text = builtins.toJSON {
     github_webhook_receiver = {
       listen = "[::1]:9899";
@@ -58,7 +60,7 @@ in { config, pkgs, ... }: {
         "ofborg/testpkgs"
       ];
       disable_trusted_users = true;
-      trusted_users = []; # disabled so everyone can build
+      trusted_users = [ ]; # disabled so everyone can build
     };
     builder = {
       rabbitmq = rabbitmq // {

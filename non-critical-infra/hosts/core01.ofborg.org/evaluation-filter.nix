@@ -55,7 +55,7 @@
     group = "ofborg-evaluation-filter";
     description = "ofBorg evaluation filter system user";
   };
-  users.groups.ofborg-evaluation-filter = {};
+  users.groups.ofborg-evaluation-filter = { };
 
   sops.secrets = {
     "ofborg/evaluation-filter-rabbitmq-password" = {

@@ -56,7 +56,7 @@
     group = "ofborg-github-comment-poster";
     description = "ofBorg GitHub comment poster system user";
   };
-  users.groups.ofborg-github-comment-poster = {};
+  users.groups.ofborg-github-comment-poster = { };
 
   sops.secrets = {
     "ofborg/github-comment-poster-rabbitmq-password" = {

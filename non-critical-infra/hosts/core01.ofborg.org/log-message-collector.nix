@@ -57,7 +57,7 @@
     group = "ofborg-logs";
     description = "ofBorg logs user";
   };
-  users.groups.ofborg-logs = {};
+  users.groups.ofborg-logs = { };
 
   sops.secrets = {
     "ofborg/log-message-collector-rabbitmq-password" = {

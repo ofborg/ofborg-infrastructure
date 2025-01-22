@@ -16,7 +16,10 @@
     bindsTo = [ "ofborg.target" ];
     restartTriggers = [ config.environment.etc."ofborg.json".source ];
 
-    path = [ config.nix.package config.programs.git.package ];
+    path = [
+      config.nix.package
+      config.programs.git.package
+    ];
 
     environment = {
       GIT_AUTHOR_NAME = "OfBorg";
@@ -44,7 +47,10 @@
       ExecStart = "${pkgs.ofborg}/bin/mass-rebuilder /etc/ofborg.json";
       User = "ofborg-mass-rebuilder";
       Group = "ofborg-mass-rebuilder";
-      SupplementaryGroups = [ "ofborg-github-oauth-secret" "ofborg-github-app-key" ];
+      SupplementaryGroups = [
+        "ofborg-github-oauth-secret"
+        "ofborg-github-app-key"
+      ];
 
       StateDirectory = [ "ofborg/checkout" ];
 
@@ -74,7 +80,7 @@
     group = "ofborg-mass-rebuilder";
     description = "ofBorg mass rebuilder system user";
   };
-  users.groups.ofborg-mass-rebuilder = {};
+  users.groups.ofborg-mass-rebuilder = { };
 
   programs.git.enable = true;
 
