@@ -62,7 +62,7 @@
     group = "ofborg-github-webhook-receiver";
     description = "ofBorg Github webhook receiver system user";
   };
-  users.groups.ofborg-github-webhook-receiver = {};
+  users.groups.ofborg-github-webhook-receiver = { };
 
   sops.secrets = {
     "ofborg/github-webhook-secret" = {

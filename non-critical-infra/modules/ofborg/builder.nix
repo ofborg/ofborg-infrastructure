@@ -15,7 +15,10 @@
     bindsTo = [ "ofborg.target" ];
     restartTriggers = [ config.environment.etc."ofborg.json".source ];
 
-    path = [ config.nix.package pkgs.git ];
+    path = [
+      config.nix.package
+      config.programs.git.package
+    ];
 
     environment = {
       GIT_AUTHOR_NAME = "OfBorg";
@@ -72,5 +75,5 @@
     group = "ofborg-builder";
     description = "ofBorg builder system user";
   };
-  users.groups.ofborg-builder = {};
+  users.groups.ofborg-builder = { };
 }

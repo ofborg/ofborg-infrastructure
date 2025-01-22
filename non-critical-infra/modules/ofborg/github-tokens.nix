@@ -11,6 +11,6 @@
       sopsFile = ../../secrets/github-tokens.ofborg.org.yml;
     };
   };
-  users.groups."ofborg-github-oauth-secret" = {};
-  users.groups."ofborg-github-app-key" = {};
+  users.groups."ofborg-github-oauth-secret" = { };
+  users.groups."ofborg-github-app-key" = { };
 }
