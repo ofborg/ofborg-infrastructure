@@ -7,6 +7,10 @@
     flake-parts.inputs.nixpkgs-lib.follows = "nixpkgs";
     flake-utils.url = "github:numtide/flake-utils";
 
+    darwin = {
+      url = "github:LnL7/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     srvos = {
       url = "github:numtide/srvos";
@@ -56,6 +60,7 @@
       ];
       imports = [
         ./non-critical-infra/flake-module.nix
+        ./macs/flake-module.nix
       ];
     };
 }

@@ -78,6 +78,26 @@
     "darwin": {
       "inputs": {
         "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1737504076,
+        "narHash": "sha256-/B4XJnzYU/6K1ZZOBIgsa3K4pqDJrnC2579c44c+4rI=",
+        "owner": "LnL7",
+        "repo": "nix-darwin",
+        "rev": "65cc1fa8e36ceff067daf6cfb142331f02f524d3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "LnL7",
+        "repo": "nix-darwin",
+        "type": "github"
+      }
+    },
+    "darwin_2": {
+      "inputs": {
+        "nixpkgs": [
           "infra",
           "nixpkgs"
         ]
@@ -330,7 +350,7 @@
     "infra": {
       "inputs": {
         "colmena": "colmena_2",
-        "darwin": "darwin",
+        "darwin": "darwin_2",
         "disko": "disko_2",
         "first-time-contribution-tagger": "first-time-contribution-tagger",
         "flake-parts": "flake-parts_2",
@@ -553,6 +573,7 @@
     "root": {
       "inputs": {
         "colmena": "colmena",
+        "darwin": "darwin",
         "disko": "disko",
         "flake-parts": "flake-parts",
         "flake-utils": "flake-utils",
