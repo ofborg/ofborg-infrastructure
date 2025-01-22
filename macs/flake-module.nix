@@ -5,7 +5,7 @@
       (cfg: {
         name = cfg.hostname;
         value = inputs.darwin.lib.darwinSystem {
-          inherit (cfg) system;
+          system = "${cfg.system}-darwin";
 
           modules = [
             ./ofborg-common.nix
