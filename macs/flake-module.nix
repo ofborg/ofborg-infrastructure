@@ -23,6 +23,15 @@
         {
           hostname = "nixos-foundation-macstadium-44911305";
           system = "x86_64";
+          ip = "208.83.1.173";
+          # 12 CPU cores
+          # 32 GB RAM
+          # 500 GB disk
+        }
+        {
+          hostname = "nixos-foundation-macstadium-44911362";
+          system = "x86_64";
+          ip = "208.83.1.175";
           # 12 CPU cores
           # 32 GB RAM
           # 500 GB disk

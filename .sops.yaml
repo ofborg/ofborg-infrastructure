@@ -17,6 +17,7 @@ keys:
   - &build04-ofborg-org age1l7xmxkh6y6d5svj06txknamlwdpfwac8855p3edgpu6jcqea7pvslw4r9a
   - &build05-ofborg-org age1mduqldqpqp33u2wwh685cwwkpj2ak36z67dtrq2tcskgqkultvps7w9q7u
   - &nixos-foundation-macstadium-44911305-ofborg-org age1x608lllmu7gdfjnn6c8mvmmguft5f22fu7g38wv3ckmzqy2usq0q5u2ekx
+  - &nixos-foundation-macstadium-44911362-ofborg-org age1d0u5ukkwsf47x4jv6uklcc4j3ljnmyz879syya2qneagz0t42cqqyf09dt
 
 creation_rules:
   - path_regex: non-critical-infra/secrets/[^/]+.core01.ofborg.org.yml
@@ -126,6 +127,15 @@ creation_rules:
     key_groups:
       - age:
           - *nixos-foundation-macstadium-44911305-ofborg-org
+          - *hexa
+          - *simon
+          - *dasJ
+          - *cole-h
+          - *cole-h-2
+  - path_regex: macs/secrets/nixos-foundation-macstadium-44911362.yml
+    key_groups:
+      - age:
+          - *nixos-foundation-macstadium-44911362-ofborg-org
           - *hexa
           - *simon
           - *dasJ
