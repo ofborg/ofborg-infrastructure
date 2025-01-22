@@ -6,6 +6,8 @@
   ...
 }:
 {
+  imports = [ ./ofborg.nix ];
+
   environment.systemPackages = [
     config.nix.package
     pkgs.nix-top
@@ -57,9 +59,7 @@
   # Manage user for ofborg, this enables creating/deleting users
   # depending on what modules are enabled.
   users = {
-    #knownGroups = [ "ofborg" ];
-    #knownUsers = [ "ofborg" ];
-    #users.ofborg.home = "/private/var/lib/ofborg";
+    users.ofborg.home = "/private/var/lib/ofborg";
     users.root = {
       # bash doesn't export /run/current-system/sw/bin to $PATH,
       # which we need for nix-store
