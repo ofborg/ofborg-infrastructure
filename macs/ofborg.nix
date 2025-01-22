@@ -14,4 +14,9 @@
       ofborg = inputs.ofborg.packages.${super.system}.pkg;
     })
   ];
+
+  sops.secrets."ofborg/builder-rabbitmq-password" = {
+    owner = "ofborg";
+    sopsFile = ./secrets/${config.networking.hostName}.yml;
+  };
 }

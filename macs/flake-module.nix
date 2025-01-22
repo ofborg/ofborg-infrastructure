@@ -14,6 +14,7 @@
           modules = [
             ./ofborg-common.nix
             ./profiles/${cfg.system}.nix
+            "${inputs.sops-nix}/modules/nix-darwin"
             { networking.hostName = cfg.hostname; }
           ];
         };

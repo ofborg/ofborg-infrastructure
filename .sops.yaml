@@ -16,9 +16,10 @@ keys:
   - &build03-ofborg-org age1n0yrvl2v397kztuhf00cdvrhf26c9uegwz6day8z9pyqj3zff4sq6ha0lm
   - &build04-ofborg-org age1l7xmxkh6y6d5svj06txknamlwdpfwac8855p3edgpu6jcqea7pvslw4r9a
   - &build05-ofborg-org age1mduqldqpqp33u2wwh685cwwkpj2ak36z67dtrq2tcskgqkultvps7w9q7u
+  - &nixos-foundation-macstadium-44911305-ofborg-org age1x608lllmu7gdfjnn6c8mvmmguft5f22fu7g38wv3ckmzqy2usq0q5u2ekx
 
 creation_rules:
-  - path_regex: secrets/[^/]+.core01.ofborg.org.yml
+  - path_regex: non-critical-infra/secrets/[^/]+.core01.ofborg.org.yml
     key_groups:
       - age:
           - *core01-ofborg-org
@@ -27,7 +28,7 @@ creation_rules:
           - *dasJ
           - *cole-h
           - *cole-h-2
-  - path_regex: secrets/github-tokens.ofborg.org.yml
+  - path_regex: non-critical-infra/secrets/github-tokens.ofborg.org.yml
     key_groups:
       - age:
           - *core01-ofborg-org
@@ -40,7 +41,7 @@ creation_rules:
           - *dasJ
           - *cole-h
           - *cole-h-2
-  - path_regex: secrets/[^/]+.eval01.ofborg.org.yml
+  - path_regex: non-critical-infra/secrets/[^/]+.eval01.ofborg.org.yml
     key_groups:
       - age:
           - *eval01-ofborg-org
@@ -49,7 +50,7 @@ creation_rules:
           - *dasJ
           - *cole-h
           - *cole-h-2
-  - path_regex: secrets/[^/]+.eval02.ofborg.org.yml
+  - path_regex: non-critical-infra/secrets/[^/]+.eval02.ofborg.org.yml
     key_groups:
       - age:
           - *eval02-ofborg-org
@@ -58,7 +59,7 @@ creation_rules:
           - *dasJ
           - *cole-h
           - *cole-h-2
-  - path_regex: secrets/[^/]+.eval03.ofborg.org.yml
+  - path_regex: non-critical-infra/secrets/[^/]+.eval03.ofborg.org.yml
     key_groups:
       - age:
           - *eval03-ofborg-org
@@ -67,7 +68,7 @@ creation_rules:
           - *dasJ
           - *cole-h
           - *cole-h-2
-  - path_regex: secrets/[^/]+.eval04.ofborg.org.yml
+  - path_regex: non-critical-infra/secrets/[^/]+.eval04.ofborg.org.yml
     key_groups:
       - age:
           - *eval04-ofborg-org
@@ -76,7 +77,7 @@ creation_rules:
           - *dasJ
           - *cole-h
           - *cole-h-2
-  - path_regex: secrets/[^/]+.build01.ofborg.org.yml
+  - path_regex: non-critical-infra/secrets/[^/]+.build01.ofborg.org.yml
     key_groups:
       - age:
           - *build01-ofborg-org
@@ -85,7 +86,7 @@ creation_rules:
           - *dasJ
           - *cole-h
           - *cole-h-2
-  - path_regex: secrets/[^/]+.build02.ofborg.org.yml
+  - path_regex: non-critical-infra/secrets/[^/]+.build02.ofborg.org.yml
     key_groups:
       - age:
           - *build02-ofborg-org
@@ -94,7 +95,7 @@ creation_rules:
           - *dasJ
           - *cole-h
           - *cole-h-2
-  - path_regex: secrets/[^/]+.build03.ofborg.org.yml
+  - path_regex: non-critical-infra/secrets/[^/]+.build03.ofborg.org.yml
     key_groups:
       - age:
           - *build03-ofborg-org
@@ -103,7 +104,7 @@ creation_rules:
           - *dasJ
           - *cole-h
           - *cole-h-2
-  - path_regex: secrets/[^/]+.build04.ofborg.org.yml
+  - path_regex: non-critical-infra/secrets/[^/]+.build04.ofborg.org.yml
     key_groups:
       - age:
           - *build04-ofborg-org
@@ -112,10 +113,19 @@ creation_rules:
           - *dasJ
           - *cole-h
           - *cole-h-2
-  - path_regex: secrets/[^/]+.build05.ofborg.org.yml
+  - path_regex: non-critical-infra/secrets/[^/]+.build05.ofborg.org.yml
     key_groups:
       - age:
           - *build05-ofborg-org
+          - *hexa
+          - *simon
+          - *dasJ
+          - *cole-h
+          - *cole-h-2
+  - path_regex: macs/secrets/nixos-foundation-macstadium-44911305.yml
+    key_groups:
+      - age:
+          - *nixos-foundation-macstadium-44911305-ofborg-org
           - *hexa
           - *simon
           - *dasJ
