@@ -2,6 +2,7 @@
   config,
   pkgs,
   lib,
+  inputs,
   ...
 }:
 {
@@ -59,9 +60,19 @@
     #knownGroups = [ "ofborg" ];
     #knownUsers = [ "ofborg" ];
     #users.ofborg.home = "/private/var/lib/ofborg";
-    # bash doesn't export /run/current-system/sw/bin to $PATH,
-    # which we need for nix-store
-    users.root.shell = "/bin/zsh";
+    users.root = {
+      # bash doesn't export /run/current-system/sw/bin to $PATH,
+      # which we need for nix-store
+      shell = "/bin/zsh";
+      # Not part of the infra team
+      openssh.authorizedKeys.keys = (import "${inputs.infra}/ssh-keys.nix").infra ++ [
+        # Not part of the infra team
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIM35Bq87SBWrEcoDqrZFOXyAmV/PJrSSu3hl3TdVvo4C janne"
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPK/3rYhlIzoPCsPK38PMdK1ivqPaJgUqWwRtmxdKZrO ✏️"
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINMcTaqUZSwv6YW8lx/JhsAZTdNSSC2fR8Pgk8woeFKh cole-h"
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIN3+NUShVVqdTH93fYFIVr0uaZ2zGiU9UEWIFk1sDHID cole-h-2"
+      ];
+    };
   };
 
   system.activationScripts.postActivation.text = ''

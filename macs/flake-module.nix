@@ -7,6 +7,8 @@
         value = inputs.darwin.lib.darwinSystem {
           system = "${cfg.system}-darwin";
 
+          specialArgs = { inherit inputs; };
+
           modules = [
             ./ofborg-common.nix
             ./profiles/${cfg.system}.nix
