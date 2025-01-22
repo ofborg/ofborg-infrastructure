@@ -19,6 +19,8 @@ keys:
   - &nixos-foundation-macstadium-44911305-ofborg-org age1x608lllmu7gdfjnn6c8mvmmguft5f22fu7g38wv3ckmzqy2usq0q5u2ekx
   - &nixos-foundation-macstadium-44911362-ofborg-org age1d0u5ukkwsf47x4jv6uklcc4j3ljnmyz879syya2qneagz0t42cqqyf09dt
   - &nixos-foundation-macstadium-44911507-ofborg-org age1s0m24l3s29jr345uxk5j8zq7kd4sln3rvf0pdtd6afum3smtxsyqtjra0z
+  - &nixos-foundation-macstadium-44911207-ofborg-org age1f6u77gvh94fk5fdh53lp04nk87cvjmwy2q3hjdlhd83mhlp0jg0s7rupux
+  - &nixos-foundation-macstadium-44911104-ofborg-org age14gkxeqaehj2m38sesnc6fyd4c3hqjt7tqjz6q7lrult3uaahxcysdxt67n
 
 creation_rules:
   - path_regex: non-critical-infra/secrets/[^/]+.core01.ofborg.org.yml
@@ -146,6 +148,24 @@ creation_rules:
     key_groups:
       - age:
           - *nixos-foundation-macstadium-44911507-ofborg-org
+          - *hexa
+          - *simon
+          - *dasJ
+          - *cole-h
+          - *cole-h-2
+  - path_regex: macs/secrets/nixos-foundation-macstadium-44911207.yml
+    key_groups:
+      - age:
+          - *nixos-foundation-macstadium-44911207-ofborg-org
+          - *hexa
+          - *simon
+          - *dasJ
+          - *cole-h
+          - *cole-h-2
+  - path_regex: macs/secrets/nixos-foundation-macstadium-44911104.yml
+    key_groups:
+      - age:
+          - *nixos-foundation-macstadium-44911104-ofborg-org
           - *hexa
           - *simon
           - *dasJ
