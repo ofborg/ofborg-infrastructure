@@ -509,15 +509,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1736023578,
-        "narHash": "sha256-Gm+5vF159alUsAcTovr2/VeiYmoIFk4vBz5rWFeFWIs=",
+        "lastModified": 1739733781,
+        "narHash": "sha256-A2S46TwpH2vJCWHdjrPBx58RsDxMtiTzEt/8dGgONMQ=",
         "owner": "NixOS",
         "repo": "ofborg",
-        "rev": "cbf0c619db7750de1e7b575ade14d0ef35a1bde3",
+        "rev": "edae3c86acc72b22c5295ac8175eba31212f38b5",
         "type": "github"
       },
       "original": {
         "owner": "NixOS",
+        "ref": "fix/macos-private",
         "repo": "ofborg",
         "type": "github"
       }

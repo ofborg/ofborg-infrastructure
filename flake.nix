@@ -40,7 +40,7 @@
       };
     };
     ofborg = {
-      url = "github:NixOS/ofborg";
+      url = "github:NixOS/ofborg/fix/macos-private";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     ofborg-viewer = {
