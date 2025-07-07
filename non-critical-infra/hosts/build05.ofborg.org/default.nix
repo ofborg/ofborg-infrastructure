@@ -36,13 +36,21 @@
     linkConfig.RequiredForOnline = "routable";
   };
 
-  zramSwap.enable = true;
+  zramSwap = {
+    enable = true;
+    memoryPercent = 100;
+  };
 
   system.stateVersion = "24.11"; # Did you read the comment?
 
   sops.secrets."ofborg/builder-rabbitmq-password" = {
     owner = "ofborg-builder";
     restartUnits = [ "ofborg-builder.service" ];
+    sopsFile = ../../secrets/ofborg.build05.ofborg.org.yml;
+  };
+  sops.secrets."harmonia/secret" = {
+    owner = "harmonia";
+    restartUnits = [ "harmonia.service" ];
     sopsFile = ../../secrets/ofborg.build05.ofborg.org.yml;
   };
 }

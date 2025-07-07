@@ -3,7 +3,7 @@
 {
   imports = [
     inputs.srvos.nixosModules.hardware-hetzner-cloud-arm
-    ../../modules/ofborg/evaluator.nix
+    ../../modules/ofborg/builder.nix
     ./hardware.nix
   ];
 
@@ -36,11 +36,21 @@
     linkConfig.RequiredForOnline = "routable";
   };
 
+  zramSwap = {
+    enable = true;
+    memoryPercent = 100;
+  };
+
   system.stateVersion = "24.11"; # Did you read the comment?
 
-  sops.secrets."ofborg/mass-rebuilder-rabbitmq-password" = {
-    owner = "ofborg-mass-rebuilder";
-    restartUnits = [ "ofborg-mass-rebuilder.service" ];
+  sops.secrets."ofborg/builder-rabbitmq-password" = {
+    owner = "ofborg-builder";
+    restartUnits = [ "ofborg-builder.service" ];
+    sopsFile = ../../secrets/ofborg.eval02.ofborg.org.yml;
+  };
+  sops.secrets."harmonia/secret" = {
+    owner = "harmonia";
+    restartUnits = [ "harmonia.service" ];
     sopsFile = ../../secrets/ofborg.eval02.ofborg.org.yml;
   };
 }

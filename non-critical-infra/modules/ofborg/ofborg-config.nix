@@ -77,7 +77,7 @@ in
 
     checkout.root = "/var/lib/ofborg/checkout";
     nix = {
-      build_timeout_seconds = 3600;
+      build_timeout_seconds = if pkgs.stdenv.hostPlatform.isx86 then 3600 else 18000;
       initial_heap_size = "4g";
       remote = "daemon";
       inherit (pkgs) system;
