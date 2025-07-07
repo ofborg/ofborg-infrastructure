@@ -4,7 +4,20 @@
   imports = [
     ./common.nix
     ./ofborg-config.nix
+    ./harmonia.nix
   ];
+
+  networking.extraHosts = ''
+    95.216.209.162 eval02.ofborg.org
+    37.27.189.4 eval03.ofborg.org
+    95.217.18.12 eval04.ofborg.org
+
+    185.119.168.10 build01.ofborg.org
+    185.119.168.11 build02.ofborg.org
+    185.119.168.12 build03.ofborg.org
+    185.119.168.13 build04.ofborg.org
+    142.132.171.106 build05.ofborg.org
+  '';
 
   deployment.tags = [ "ofborg-builder" ];
 
