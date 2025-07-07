@@ -36,6 +36,11 @@
     linkConfig.RequiredForOnline = "routable";
   };
 
+  zramSwap = {
+    enable = true;
+    memoryPercent = 100;
+  };
+
   system.stateVersion = "24.11"; # Did you read the comment?
 
   sops.secrets."ofborg/mass-rebuilder-rabbitmq-password" = {

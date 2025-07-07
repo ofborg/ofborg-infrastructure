@@ -33,7 +33,10 @@
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGQ5hBVVKK72ZX+n+BVnPocx+AG5u6ht8bM++G1lhufp liberodark@gmail.com"
   ];
 
-  zramSwap.enable = true;
+  zramSwap = {
+    enable = true;
+    memoryPercent = 25;
+  };
 
   system.stateVersion = "24.11"; # Did you read the comment?
 
