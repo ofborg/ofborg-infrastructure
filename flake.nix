@@ -40,7 +40,7 @@
       };
     };
     ofborg = {
-      url = "github:NixOS/ofborg";
+      url = "github:wolfgangwalther/ofborg/fewer-labels";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     ofborg-viewer = {
