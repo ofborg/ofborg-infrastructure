@@ -48,11 +48,7 @@
         Minute = 15;
       };
       # ensure up to 125G free space every hour
-      options =
-        let
-          gbFree = 50;
-        in
-        "--max-freed $((${toString gbFree} * 1024**3 - 1024 * $(df -P -k /nix/store | tail -n 1 | awk '{ print $4 }')))";
+      options = "--max-freed $(df -k /nix/store | awk 'NR==2 {available=$4; required=125*1024*1024; to_free=required-available; printf \"%.0d\", to_free*1024}')";
     };
   };
 
