@@ -625,16 +625,15 @@
         ]
       },
       "locked": {
-        "lastModified": 1751876965,
-        "narHash": "sha256-gDccT3UBDzXG091xoPITBMjLKQFnrFyYB6aPg2vfVh8=",
-        "owner": "wolfgangwalther",
+        "lastModified": 1753208420,
+        "narHash": "sha256-ydYVkz4wplz1NWEK3QRItlUQuL3jF5Seub+r43nRm2g=",
+        "owner": "NixOS",
         "repo": "ofborg",
-        "rev": "1900d52f40d69fa8c1bc6d2297f335e2b0e94cfb",
+        "rev": "c390cd1c5f207667609b613811c3b0cc5775b599",
         "type": "github"
       },
       "original": {
-        "owner": "wolfgangwalther",
-        "ref": "fewer-labels",
+        "owner": "NixOS",
         "repo": "ofborg",
         "type": "github"
       }
