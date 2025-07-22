@@ -14,6 +14,7 @@
   ];
 
   system.stateVersion = 5;
+  ids.gids.nixbld = 30000;
 
   programs = {
     zsh = {
@@ -26,10 +27,12 @@
     };
   };
 
-  services.nix-daemon.enable = true;
-
   nix = {
-    package = pkgs.nix;
+    package = pkgs.nixVersions.nix_2_24.overrideAttrs (oldAttrs: {
+      patches = oldAttrs.patches or [ ] ++ [
+        "${inputs.infra}/macs/disable-chroot.patch"
+      ];
+    });
     settings = {
       extra-experimental-features = [
         "nix-command"
@@ -42,7 +45,6 @@
     };
     gc = {
       automatic = true;
-      user = "root";
       interval = {
         # hourly at the 15th minute
         Minute = 15;
