@@ -28,7 +28,11 @@
   };
 
   nix = {
-    package = pkgs.nix;
+    package = pkgs.nixVersions.nix_2_24.overrideAttrs (oldAttrs: {
+      patches = oldAttrs.patches or [ ] ++ [
+        "${inputs.infra}/macs/disable-chroot.patch"
+      ];
+    });
     settings = {
       extra-experimental-features = [
         "nix-command"
