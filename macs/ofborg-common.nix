@@ -14,6 +14,7 @@
   ];
 
   system.stateVersion = 5;
+  ids.gids.nixbld = 30000;
 
   programs = {
     zsh = {
@@ -25,8 +26,6 @@
       completion.enable = true;
     };
   };
-
-  services.nix-daemon.enable = true;
 
   nix = {
     package = pkgs.nix;
@@ -42,7 +41,6 @@
     };
     gc = {
       automatic = true;
-      user = "root";
       interval = {
         # hourly at the 15th minute
         Minute = 15;
