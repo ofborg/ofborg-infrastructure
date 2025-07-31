@@ -1,10 +1,10 @@
-{ inputs, ... }:
-
+{ inputs, config, ... }:
 {
   imports = [
     inputs.srvos.nixosModules.hardware-hetzner-cloud-arm
     ../../modules/ofborg/builder.nix
     ./hardware.nix
+    ../../modules/ofborg/hydra-queue-builder.nix
   ];
 
   # Bootloader.
@@ -43,14 +43,32 @@
 
   system.stateVersion = "24.11"; # Did you read the comment?
 
-  sops.secrets."ofborg/builder-rabbitmq-password" = {
-    owner = "ofborg-builder";
-    restartUnits = [ "ofborg-builder.service" ];
-    sopsFile = ../../secrets/ofborg.eval02.ofborg.org.yml;
+  services.hydra-queue-builder-v2 = {
+    enable = true;
+    queueRunnerAddr = "https://queue-runner.staging-hydra.nixos.org";
+    mtls = {
+      serverRootCaCertPath = "${../../staging-hydra-ca.crt}";
+      clientCertPath = "${./client.crt}";
+      clientKeyPath = config.sops.secrets."queue-runner-client.key".path;
+      domainName = "queue-runner.staging-hydra.nixos.org";
+    };
   };
-  sops.secrets."harmonia/secret" = {
-    owner = "harmonia";
-    restartUnits = [ "harmonia.service" ];
-    sopsFile = ../../secrets/ofborg.eval02.ofborg.org.yml;
+
+  sops.secrets = {
+    "ofborg/builder-rabbitmq-password" = {
+      owner = "ofborg-builder";
+      restartUnits = [ "ofborg-builder.service" ];
+      sopsFile = ../../secrets/ofborg.eval02.ofborg.org.yml;
+    };
+    "harmonia/secret" = {
+      owner = "harmonia";
+      restartUnits = [ "harmonia.service" ];
+      sopsFile = ../../secrets/ofborg.eval02.ofborg.org.yml;
+    };
+    "queue-runner-client.key" = {
+      owner = "hydra-queue-builder";
+      restartUnits = [ "hydra-queue-builder-v2.service" ];
+      sopsFile = ../../secrets/ofborg.eval02.ofborg.org.yml;
+    };
   };
 }
