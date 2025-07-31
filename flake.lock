@@ -476,16 +476,17 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1754411894,
-        "narHash": "sha256-uu3qm8HiIVTqnVf7pVNJ0zcgd9VjqYYXoECsP+SeqTI=",
-        "owner": "NixOS",
-        "repo": "infra",
-        "rev": "c2b4f367acbb611618925deedb37ccc562b6108a",
+        "lastModified": 1754556619,
+        "narHash": "sha256-6iKNqdixzdJORYloxxnwgpX+lXMm9HXQbP82maPmFDI=",
+        "owner": "helsinki-systems",
+        "repo": "nixos-infra",
+        "rev": "e21d6f595545327913f6664f4b1afcc4d5036e3f",
         "type": "github"
       },
       "original": {
-        "owner": "NixOS",
-        "repo": "infra",
+        "owner": "helsinki-systems",
+        "ref": "feat/init-queue-runner-v2",
+        "repo": "nixos-infra",
         "type": "github"
       }
     },
