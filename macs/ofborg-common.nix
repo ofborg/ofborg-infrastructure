@@ -6,7 +6,10 @@
   ...
 }:
 {
-  imports = [ ./ofborg.nix ];
+  imports = [
+    ./ofborg.nix
+    ./queue-builder.nix
+  ];
 
   environment.systemPackages = [
     config.nix.package

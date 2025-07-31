@@ -7,6 +7,8 @@
     ../../modules/ofborg/github-tokens.nix
     ./nginx.nix
     ./rabbitmq.nix
+    # ofborg.org landingpage
+    # ./website.nix
     # Accepts webhooks from GitHub
     ./github-webhook-receiver.nix
     # Checks wheter a PR event is interesting to us

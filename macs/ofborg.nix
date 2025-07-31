@@ -6,7 +6,9 @@
 }:
 
 {
-  imports = [ ../non-critical-infra/modules/ofborg/ofborg-config.nix ];
+  imports = [
+    ../non-critical-infra/modules/ofborg/ofborg-config.nix
+  ];
 
   services.ofborg = {
     enable = true;

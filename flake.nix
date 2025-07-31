@@ -33,7 +33,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     infra = {
-      url = "github:NixOS/infra";
+      url = "github:helsinki-systems/nixos-infra/upd/fixups_staging";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         nixpkgs-unstable.follows = "nixpkgs-unstable";
