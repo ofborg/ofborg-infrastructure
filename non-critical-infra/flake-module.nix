@@ -32,6 +32,7 @@
         }
       ) (importConfig ./hosts);
 
+      colmenaHive = inputs.colmena.lib.makeHive self.outputs.colmena;
       colmena =
         {
           meta = {
