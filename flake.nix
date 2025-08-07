@@ -33,7 +33,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     infra = {
-      url = "github:NixOS/infra";
+      url = "github:helsinki-systems/nixos-infra/feat/init-queue-runner-v2";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         nixpkgs-unstable.follows = "nixpkgs-unstable";
