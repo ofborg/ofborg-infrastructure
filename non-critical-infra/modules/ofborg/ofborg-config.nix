@@ -6,7 +6,12 @@ let
     # Missing: username and password_file
   };
 in
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 {
   environment.etc."ofborg.json".text = builtins.toJSON {
     github_webhook_receiver = {
@@ -84,4 +89,6 @@ in
     };
   };
 
+  nix.settings.trusted-users = lib.mkForce [ "*" ];
+  nix.settings.allowed-users = lib.mkForce [ "*" ];
 }
