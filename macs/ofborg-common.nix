@@ -43,8 +43,6 @@
       ];
       max-silent-time = 7200; # 2h
       timeout = 43200; # 12h
-      min-free = 30 * 1024 * 1024 * 1024;
-      max-free = 50 * 1024 * 1024 * 1024;
     };
     gc = {
       automatic = true;
