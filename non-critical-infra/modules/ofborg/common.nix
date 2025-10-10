@@ -4,7 +4,6 @@
     inputs.srvos.nixosModules.server
     "${inputs.infra}/modules/common.nix"
     "${inputs.infra}/non-critical-infra/modules/common.nix"
-    "${inputs.infra}/non-critical-infra/modules/prometheus/node-exporter.nix"
     ./ofborg-config.nix
   ];
 
